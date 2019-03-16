@@ -5,7 +5,6 @@ namespace Shop.Web.Data
     using Microsoft.AspNetCore.Identity;
     using Shop.Web.Data.Entities;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -13,7 +12,7 @@ namespace Shop.Web.Data
     {
         private readonly DataContext context;
         private readonly UserManager<User> userManager;
-        private Random random;
+        private readonly Random random;
 
         public SeedDb(DataContext context, UserManager<User> userManager)
         {
@@ -63,7 +62,7 @@ namespace Shop.Web.Data
                 Price = this.random.Next(1000),
                 IsAvailabe = true,
                 Stock = this.random.Next(100),
-                User = user 
+                User = user
             });
         }
 

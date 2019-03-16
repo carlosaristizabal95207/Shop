@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Shop.Web.Data;
-using Shop.Web.Data.Entities;
+﻿
 
 namespace Shop.Web.Controllers
 {
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using Data;
+    using Data.Entities;
+    
+
     public class ProductsController : Controller
     {
         private readonly IRepository repository;
@@ -33,7 +32,7 @@ namespace Shop.Web.Controllers
                 return NotFound();
             }
 
-            var product =this.repository.GetProduct(id.Value);
+            var product = this.repository.GetProduct(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -138,7 +137,7 @@ namespace Shop.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
- 
+
 
     }
 }
